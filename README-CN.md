@@ -14,18 +14,19 @@ BSC-PHP 目前支持币安智能链的 BNB 和 BEP20 数字资产常用的生成
 ## 支持方法
 
 ### wallet
-- 生成私钥创建账户 `newAccountByPrivateKey()`
-- 生成助记词创建账户 `newAccountByMnemonic()`
+- *生成私钥创建账户 `newAccountByPrivateKey()`
+- *生成助记词创建账户 `newAccountByMnemonic()`
 - 使用助记词还原账户 `revertAccountByMnemonic(string $mnemonic)`
 - 根据私钥得到地址 `revertAccountByPrivateKey(string $privateKey)`
 
 ### Bnb & BEP20
-- 查询余额(BNB) `bnbBalance(string $address)`
-- 查询余额(BEP20) `balance(string $address)`
-- 交易转账(离线签名) `transfer(string $from, string $to, float $amount)`
+- *查询余额(BNB) `bnbBalance(string $address)`
+- *查询余额(BEP20) `balance(string $address)`
+- *交易转账(离线签名) `transfer(string $from, string $to, float $amount)`
 - 查询最新区块 `blockNumber()`
 - 根据区块链查询信息 `getBlockByNumber(int $blockID)`
-- 根据交易哈希查询信息 `getTransactionReceipt(string $txHash)`
+- *根据交易哈希查询信息 `getTransactionReceipt(string $txHash)`
+- *根据交易哈希查询交易状态 `receiptStatus(string $txHash)`
 
 ## 快速开始
 
@@ -75,7 +76,7 @@ $config = [
 ];
 $bep20 = new \Binance\BEP20($api, $config);
 
-// *查询余额
+// 查询余额
 $address = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
 $bnb->bnbBalance($address);
 $bep20->balance($address);
@@ -100,6 +101,11 @@ $bep20->getBlockByNumber($blockID);
 $txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
 $bnb->getTransactionReceipt($txHash);
 $bep20->getTransactionReceipt($txHash);
+
+// 根据交易哈希查询交易状态
+$txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
+$bnb->receiptStatus($txHash);
+$bep20->receiptStatus($txHash);
 ```
 
 ## 计划

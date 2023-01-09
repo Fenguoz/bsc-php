@@ -14,18 +14,20 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 ## Support Method
 
 ### wallet
-- Generate a private key to create an account `newAccountByPrivateKey()`
-- Generate mnemonic and create an account `newAccountByMnemonic()`
+- *Generate a private key to create an account `newAccountByPrivateKey()`
+- *Generate mnemonic and create an account `newAccountByMnemonic()`
 - Restore account using mnemonic `revertAccountByMnemonic(string $mnemonic)`
 - Get the address according to the private key `revertAccountByPrivateKey(string $privateKey)`
 
 ### Bnb & BEP20
-- Check balances(BNB) `bnbBalance(string $address)`
-- Check balances(BEP20) `balance(string $address)`
+- *Check balances(BNB) `bnbBalance(string $address)`
+- *Check balances(BEP20) `balance(string $address)`
 - Transaction transfer (offline signature) `transfer(string $from, string $to, float $amount)`
 - Query the latest block `blockNumber()`
 - Query information according to the blockchain `getBlockByNumber(int $blockID)`
-- Query information based on transaction hash `getTransactionReceipt(string $txHash)`
+- *Query information based on transaction hash `getTransactionReceipt(string $txHash)`
+- *Query transaction status based on transaction hash `receiptStatus(string $txHash)`
+
 
 ## Quick Start
 
@@ -100,6 +102,11 @@ $bep20->getBlockByNumber($blockID);
 $txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
 $bnb->getTransactionReceipt($txHash);
 $bep20->getTransactionReceipt($txHash);
+
+// Query transaction status based on transaction hash
+$txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
+$bnb->receiptStatus($txHash);
+$bep20->receiptStatus($txHash);
 ```
 
 ## Plan

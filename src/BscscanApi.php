@@ -102,18 +102,19 @@ class BscscanApi implements ProxyApi
         return $this->network;
     }
 
-    function ethCall($params): void
+    function ethCall($params): string
     {
-        // TODO: Implement ethCall() method.
+        return $this->send('eth_call', ['params' => $params, 'latest']);
     }
 
     function blockNumber()
     {
-        // TODO: Implement blockNumber() method.
+        return hexdec($this->send('eth_blockNumber'));
     }
 
     function getBlockByNumber(int $blockNumber)
     {
-        // TODO: Implement getBlockByNumber() method.
+        $blockNumber = Utils::toHex($blockNumber, true);
+        return $this->send('eth_getBlockByNumber', ['blockNumber' => $blockNumber, true]);
     }
 }
