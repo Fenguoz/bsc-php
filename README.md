@@ -24,8 +24,8 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 - Check balances(BEP20) `balance(string $address)`
 - Transaction transfer (offline signature) `transfer(string $from, string $to, float $amount)`
 - Query the latest block `blockNumber()`
-- Query information according to the blockchain `blockByNumber(int $blockID)`
-- Query information based on transaction hash `transactionReceipt(string $txHash)`
+- Query information according to the blockchain `getBlockByNumber(int $blockID)`
+- Query information based on transaction hash `getTransactionReceipt(string $txHash)`
 
 ## Quick Start
 
@@ -39,34 +39,67 @@ composer require fenguoz/bsc-php
 
 #### Wallet
 ``` php
-// Generate a private key to create an account
 $wallet = new \Binance\Wallet();
-$addressData = $wallet->newAccountByPrivateKey();
+
+// Generate a private key to create an account
+$wallet->newAccountByPrivateKey();
+
+// Generate mnemonic and create an account
+$wallet->newAccountByMnemonic();
+
+// Restore account using mnemonic
+$mnemonic = 'elite link code extra twist autumn flower purse excuse harsh kitchen whip';
+$wallet->revertAccountByMnemonic($mnemonic);
+
+// Get the address according to the private key
+$privateKey = '5e9340935f4c02628cec5d04cc281012537cafa8dae0e27ff56563b8dffab368';
+$wallet->revertAccountByPrivateKey($privateKey);
 ``` 
 
 #### Bnb & BEP20
 ``` php
-## Method 1 : BSC RPC Nodes
+## 方法 1 : BSC RPC Nodes
 $uri = 'https://bsc-dataseed1.defibit.io/';// Mainnet
 // $uri = 'https://data-seed-prebsc-1-s1.binance.org:8545/';// Testnet
 $api = new \Binance\NodeApi($uri);
 
-## Method 2 : Bscscan Api
+## 方法 2 : Bscscan Api
 $apiKey = 'QVG2GK41ASNSD21KJTXUAQ4JTRQ4XUQZCX';
 $api = new \Binance\BscscanApi($apiKey);
 
-$address = '0x685B1ded8013785....';
-// Bnb - Check balances
-$bnbWallet = new \Binance\Bnb($api);
-$bnbBalance = $bnbWallet->bnbBalance($address);
+$bnb = new \Binance\Bnb($api);
 
-// BEP20 - Check balances
 $config = [
     'contract_address' => '0x55d398326f99059fF775485246999027B3197955',// USDT BEP20
     'decimals' => 18,
 ];
-$bep20Wallet = new \Binance\BEP20($api, $config);
-$bep20Balance = $bep20Wallet->balance($address);
+$bep20 = new \Binance\BEP20($api, $config);
+
+// *Check balances
+$address = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
+$bnb->bnbBalance($address);
+$bep20->balance($address);
+
+// Transaction transfer (offline signature)
+$from = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
+$to = '0x1667ca2c72d8699f0c34c55ea00b60eef021****';
+$amount = 0.1;
+$bnb->transfer($from, $to, $amount);
+$bep20->transfer($from, $to, $amount);
+
+// Query the latest block
+$bnb->blockNumber();
+$bep20->blockNumber();
+
+// Query information according to the blockchain
+$blockID = 24631027;
+$bnb->getBlockByNumber($blockID);
+$bep20->getBlockByNumber($blockID);
+
+// Query information based on transaction hash
+$txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
+$bnb->getTransactionReceipt($txHash);
+$bep20->getTransactionReceipt($txHash);
 ```
 
 ## Plan

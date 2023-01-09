@@ -24,8 +24,8 @@ BSC-PHP 目前支持币安智能链的 BNB 和 BEP20 数字资产常用的生成
 - 查询余额(BEP20) `balance(string $address)`
 - 交易转账(离线签名) `transfer(string $from, string $to, float $amount)`
 - 查询最新区块 `blockNumber()`
-- 根据区块链查询信息 `blockByNumber(int $blockID)`
-- 根据交易哈希查询信息 `transactionReceipt(string $txHash)`
+- 根据区块链查询信息 `getBlockByNumber(int $blockID)`
+- 根据交易哈希查询信息 `getTransactionReceipt(string $txHash)`
 
 ## 快速开始
 
@@ -39,9 +39,21 @@ composer require fenguoz/bsc-php
 
 #### Wallet
 ``` php
-// 生成私钥创建账户
 $wallet = new \Binance\Wallet();
-$addressData = $wallet->newAccountByPrivateKey();
+
+// 生成私钥创建账户
+$wallet->newAccountByPrivateKey();
+
+// 生成助记词创建账户
+$wallet->newAccountByMnemonic();
+
+// 使用助记词还原账户
+$mnemonic = 'elite link code extra twist autumn flower purse excuse harsh kitchen whip';
+$wallet->revertAccountByMnemonic($mnemonic);
+
+// 根据私钥得到地址
+$privateKey = '5e9340935f4c02628cec5d04cc281012537cafa8dae0e27ff56563b8dffab368';
+$wallet->revertAccountByPrivateKey($privateKey);
 ``` 
 
 #### Bnb & BEP20
@@ -55,18 +67,39 @@ $api = new \Binance\NodeApi($uri);
 $apiKey = 'QVG2GK41ASNSD21KJTXUAQ4JTRQ4XUQZCX';
 $api = new \Binance\BscscanApi($apiKey);
 
-$address = '0x685B1ded8013785....';
-// Bnb查询余额
-$bnbWallet = new \Binance\Bnb($api);
-$bnbBalance = $bnbWallet->bnbBalance($address);
+$bnb = new \Binance\Bnb($api);
 
-// BEP20查询余额
 $config = [
     'contract_address' => '0x55d398326f99059fF775485246999027B3197955',// USDT BEP20
     'decimals' => 18,
 ];
-$bep20Wallet = new \Binance\BEP20($api, $config);
-$bep20Balance = $bep20Wallet->balance($address);
+$bep20 = new \Binance\BEP20($api, $config);
+
+// *查询余额
+$address = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
+$bnb->bnbBalance($address);
+$bep20->balance($address);
+
+// 交易转账(离线签名)
+$from = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
+$to = '0x1667ca2c72d8699f0c34c55ea00b60eef021****';
+$amount = 0.1;
+$bnb->transfer($from, $to, $amount);
+$bep20->transfer($from, $to, $amount);
+
+// 查询最新区块
+$bnb->blockNumber();
+$bep20->blockNumber();
+
+// 根据区块链查询信息
+$blockID = 24631027;
+$bnb->getBlockByNumber($blockID);
+$bep20->getBlockByNumber($blockID);
+
+// 根据交易哈希查询信息
+$txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
+$bnb->getTransactionReceipt($txHash);
+$bep20->getTransactionReceipt($txHash);
 ```
 
 ## 计划
