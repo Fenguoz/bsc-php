@@ -17,6 +17,7 @@
         }
     ],
     "require": {
+        "php": ">=7.2",
         "ionux/phactor": "1.0.8",
         "kornrunner/keccak": "^1.0",
         "sop/asn1": "^3.3",
@@ -25,12 +26,12 @@
         "phpseclib/phpseclib": "~2.0.11",
         "guzzlehttp/guzzle": "~6.0",
         "furqansiddiqui/bip39-mnemonic-php": "^0.1.2",
-        "nanqi/minter-php-bip-44": "^1.0",
+        "fenguoz/minter-php-bip-44": "~1.0",
         "ext-gmp": "*",
         "ext-openssl": "*",
         "ext-json": "*",
         "ext-bcmath": "*",
-        "web3p/ethereum-tx": "^0.3.4"
+        "web3p/ethereum-tx": "^0.4.3"
     },
     "autoload": {
         "psr-4": {
