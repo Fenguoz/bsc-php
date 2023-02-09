@@ -32,8 +32,14 @@ BSC-PHP 目前支持币安智能链的 BNB 和 BEP20 数字资产常用的生成
 
 ### 安装
 
+PHP8
 ``` php
 composer require fenguoz/bsc-php
+```
+
+or PHP7
+``` php
+composer require fenguoz/bsc-php ~1.0
 ```
 
 ### 接口调用
