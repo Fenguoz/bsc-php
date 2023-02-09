@@ -33,8 +33,14 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 
 ### Install
 
+PHP8
 ``` php
 composer require fenguoz/bsc-php
+```
+
+or PHP7
+``` php
+composer require fenguoz/bsc-php ~1.0
 ```
 
 ### Interface
