@@ -2,6 +2,13 @@ English | [中文](./README-CN.md)
 
 <h1 align="center">BSC-PHP</h1>
 
+<p align="center">
+  <a href="https://github.com/Fenguoz/bsc-php/releases"><img src="https://poser.pugx.org/Fenguoz/bsc-php/v/stable" alt="Stable Version"></a>
+  <a href="https://www.php.net"><img src="https://img.shields.io/badge/php-%3E=7.2-brightgreen.svg?maxAge=2592000" alt="Php Version"></a>
+  <a href="https://github.com/Fenguoz/bsc-php/blob/master/LICENSE"><img src="https://img.shields.io/github/license/fenguoz/bsc-php.svg?maxAge=2592000" alt="bsc-php License"></a>
+  <a href="https://packagist.org/packages/Fenguoz/bsc-php"><img src="https://poser.pugx.org/Fenguoz/bsc-php/downloads" alt="Total Downloads"></a>
+</p>
+
 ## Introduction
 
 Support Binance's BNB and BEP20, which include functions such as address creation, balance query, transaction transfer, query the latest blockchain, query information based on the blockchain, and query information based on the transaction hash.

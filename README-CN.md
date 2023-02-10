@@ -2,6 +2,13 @@
 
 <h1 align="center">BSC-PHP</h1>
 
+<p align="center">
+  <a href="https://github.com/Fenguoz/bsc-php/releases"><img src="https://poser.pugx.org/Fenguoz/bsc-php/v/stable" alt="Stable Version"></a>
+  <a href="https://www.php.net"><img src="https://img.shields.io/badge/php-%3E=7.2-brightgreen.svg?maxAge=2592000" alt="Php Version"></a>
+  <a href="https://github.com/Fenguoz/bsc-php/blob/master/LICENSE"><img src="https://img.shields.io/github/license/fenguoz/bsc-php.svg?maxAge=2592000" alt="bsc-php License"></a>
+  <a href="https://packagist.org/packages/Fenguoz/bsc-php"><img src="https://poser.pugx.org/Fenguoz/bsc-php/downloads" alt="Total Downloads"></a>
+</p>
+
 ## 概述
 
 BSC-PHP 目前支持币安智能链的 BNB 和 BEP20 数字资产常用的生成地址，发起转账，查询余额，离线签名等功能。
