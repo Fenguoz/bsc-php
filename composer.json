@@ -1,5 +1,5 @@
 {
-    "name": "fenguoz/bsc-php",
+    "name": "aliqasemzadeh/bsc-php",
     "description": "Support Binance's BNB and BEP20, which include functions such as address creation, balance query, transaction transfer, query the latest blockchain, query information based on the blockchain, and query information based on the transaction hash",
     "keywords": [
         "php",
@@ -8,9 +8,13 @@
         "bep20"
     ],
     "type": "library",
-    "homepage": "https://github.com/Fenguoz/bsc-php",
+    "homepage": "https://github.com/aliqasemzadeh/bsc-php",
     "license": "MIT",
     "authors": [
+                {
+            "name": "Ali Qasemzadeh",
+            "email": "AliQasemzadeh7@gmail.com"
+        },
         {
             "name": "Fenguoz",
             "email": "243944672@qq.com"
@@ -20,11 +24,11 @@
         "php": ">=8.0",
         "ionux/phactor": "1.0.8",
         "kornrunner/keccak": "^1.0",
-        "sop/asn1": "^3.3",
-        "sop/crypto-encoding": "^0.2.0",
+        "sop/asn1": "^4.1",
+        "sop/crypto-encoding": "^0.3.0",
         "sop/crypto-types": "^0.2.1",
         "phpseclib/phpseclib": "~2.0.11",
-        "guzzlehttp/guzzle": "~6.0",
+        "guzzlehttp/guzzle": "~7.5",
         "fenguoz/bip39-mnemonic-php": "~1.2.0",
         "fenguoz/minter-php-bip-44": "~1.0",
         "ext-gmp": "*",
