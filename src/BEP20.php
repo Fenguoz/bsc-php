@@ -43,7 +43,7 @@ class BEP20 extends Bnb
             'nonce' => "$nonce",
             'from' => $from,
             'to' => $this->contractAddress,
-            'gas' => '0x15F90',
+            'gas' => '0x3d090',
             'gasPrice' => "$gasPrice",
             'value' => Utils::NONE,
             'chainId' => self::getChainId($this->proxyApi->getNetwork()),
