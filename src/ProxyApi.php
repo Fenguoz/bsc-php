@@ -17,6 +17,8 @@ interface ProxyApi
 
     function getTransactionReceipt(string $txHash);
 
+    function getTransactionByHash(string $txHash);
+
     function sendRawTransaction($raw);
 
     function getNonce(string $address);

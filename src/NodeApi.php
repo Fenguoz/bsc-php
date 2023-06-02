@@ -79,6 +79,11 @@ data;
         return $this->send('eth_getTransactionReceipt', ['txHash' => $txHash]);
     }
 
+    function getTransactionByHash(string $txHash)
+    {
+        return $this->send('eth_getTransactionByHash', ['txHash' => $txHash]);
+    }
+
     function getNetwork(): string
     {
         return $this->network;

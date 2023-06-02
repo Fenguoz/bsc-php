@@ -32,7 +32,8 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 - Transaction transfer (offline signature) `transfer(string $from, string $to, float $amount)`
 - Query the latest block `blockNumber()`
 - Query information according to the blockchain `getBlockByNumber(int $blockID)`
-- *Query information based on transaction hash `getTransactionReceipt(string $txHash)`
+- Returns the receipt of a transaction by transaction hash `getTransactionReceipt(string $txHash)`
+- *Returns the information about a transaction requested by transaction hash `getTransactionByHash(string $txHash)`
 - *Query transaction status based on transaction hash `receiptStatus(string $txHash)`
 
 
@@ -111,10 +112,15 @@ $blockID = 24631027;
 $bnb->getBlockByNumber($blockID);
 $bep20->getBlockByNumber($blockID);
 
-// Query information based on transaction hash
+// Returns the receipt of a transaction by transaction hash
 $txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
 $bnb->getTransactionReceipt($txHash);
 $bep20->getTransactionReceipt($txHash);
+
+// Returns the information about a transaction requested by transaction hash
+$txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
+$bnb->getTransactionByHash($txHash);
+$bep20->getTransactionByHash($txHash);
 
 // Query transaction status based on transaction hash
 $txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';

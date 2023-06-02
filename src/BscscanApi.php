@@ -87,6 +87,11 @@ class BscscanApi implements ProxyApi
         return $res;
     }
 
+    function getTransactionByHash(string $txHash)
+    {
+        return $this->send('eth_getTransactionByHash', ['txHash' => $txHash]);
+    }
+
     function sendRawTransaction($raw)
     {
         return $this->send('eth_sendRawTransaction', ['hex' => $raw]);
