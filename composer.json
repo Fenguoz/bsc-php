@@ -8,12 +8,12 @@
         "bep20"
     ],
     "type": "library",
-    "homepage": "https://github.com/Fenguoz/bsc-php",
+    "homepage": "https://github.com/mgx888/bsc-php",
     "license": "MIT",
     "authors": [
         {
-            "name": "Fenguoz",
-            "email": "243944672@qq.com"
+            "name": "test",
+            "email": "test@qq.com"
         }
     ],
     "require": {
@@ -24,7 +24,7 @@
         "sop/crypto-encoding": "^0.2.0",
         "sop/crypto-types": "^0.2.1",
         "phpseclib/phpseclib": "~2.0.11",
-        "guzzlehttp/guzzle": "^6.5",
+        "guzzlehttp/guzzle": "^7.2",
         "fenguoz/bip39-mnemonic-php": "~1.2.0",
         "fenguoz/minter-php-bip-44": "~1.0",
         "ext-gmp": "*",
