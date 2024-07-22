@@ -25,3 +25,15 @@ $config = [
 ];
 $bep20Wallet = new \Binance\BEP20($api, $config);
 $bep20Balance = $bep20Wallet->balance($address);
+
+
+#Send Bep20 Tokens From Custom Token
+
+$from = REPLACE_WITH_ADDRESS_PRIVATE_KEY;
+$to = '0xc33823b5407d2EC45e3DA8B937651bE1A80F55F5';
+$amount = 0.003;
+#BNB SEND
+$txnHash = $bnb->transfer($from, $to, $amount);
+$amount = 100;
+#BEP20 SEND
+$txnHash = $bep20->transfer($from, $to, $amount);
