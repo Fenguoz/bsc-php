@@ -23,6 +23,7 @@ $config = [
     'contract_address' => '0x55d398326f99059fF775485246999027B3197955', // USDT BEP20
     'decimals' => 18,
 ];
+$fee = $api->gasPrice();
 $bep20Wallet = new \Binance\BEP20($api, $config);
 $bep20Balance = $bep20Wallet->balance($address);
 
