@@ -67,7 +67,7 @@ $mnemonic = 'elite link code extra twist autumn flower purse excuse harsh kitche
 $wallet->revertAccountByMnemonic($mnemonic);
 
 // 根据私钥得到地址
-$privateKey = '5e9340935f4c02628cec5d04cc281012537cafa8dae0e27ff56563b8dffab368';
+$privateKey = '5e9340935f4c02****f56563b8dffab368';
 $wallet->revertAccountByPrivateKey($privateKey);
 ``` 
 
@@ -79,7 +79,7 @@ $uri = 'https://bsc-dataseed1.defibit.io/';// Mainnet
 $api = new \Binance\NodeApi($uri);
 
 ## 方法 2 : Bscscan Api
-$apiKey = 'QVG2GK41ASNSD21KJTXUAQ4JTRQ4XUQZCX';
+$apiKey = 'QVG2GK41A****RQ4XUQZCX';
 $api = new \Binance\BscscanApi($apiKey);
 
 $bnb = new \Binance\Bnb($api);
@@ -91,13 +91,13 @@ $config = [
 $bep20 = new \Binance\BEP20($api, $config);
 
 // 查询余额
-$address = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
+$address = '0x1667ca2c7****021be3a';
 $bnb->bnbBalance($address);
 $bep20->balance($address);
 
 // 交易转账(离线签名)
-$from = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
-$to = '0x1667ca2c72d8699f0c34c55ea00b60eef021****';
+$from = '0x1667ca2c7****021be3a';
+$to = '0xd8699f0****b60eef021';
 $amount = 0.1;
 $bnb->transfer($from, $to, $amount);
 $bep20->transfer($from, $to, $amount);
@@ -112,17 +112,17 @@ $bnb->getBlockByNumber($blockID);
 $bep20->getBlockByNumber($blockID);
 
 // 根据交易哈希返回交易的收据
-$txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
+$txHash = '0x4dd20d01af4c621d2f****77988bfb245a18bfb6f50604b';
 $bnb->getTransactionReceipt($txHash);
 $bep20->getTransactionReceipt($txHash);
 
 // 根据交易哈希返回关于所请求交易的信息
-$txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
+$txHash = '0x4dd20d01af4c621d2f****77988bfb245a18bfb6f50604b';
 $bnb->getTransactionByHash($txHash);
 $bep20->getTransactionByHash($txHash);
 
 // 根据交易哈希查询交易状态
-$txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
+$txHash = '0x4dd20d01af4c621d2f****77988bfb245a18bfb6f50604b';
 $bnb->receiptStatus($txHash);
 $bep20->receiptStatus($txHash);
 ```
