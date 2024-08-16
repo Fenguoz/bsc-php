@@ -24,7 +24,7 @@
         "sop/crypto-encoding": "^0.2.0",
         "sop/crypto-types": "^0.2.1",
         "phpseclib/phpseclib": "~2.0.11",
-        "guzzlehttp/guzzle": "^6.5",
+        "guzzlehttp/guzzle": ">=6.5",
         "fenguoz/bip39-mnemonic-php": "~1.2.0",
         "fenguoz/minter-php-bip-44": "~1.0",
         "ext-gmp": "*",
