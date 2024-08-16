@@ -52,10 +52,10 @@ data;
         return $this->send('eth_gasPrice');
     }
 
-    function bnbBalance(string $address)
+    function bnbBalance(string $address, int $decimals = 18)
     {
         $balance = $this->send('eth_getBalance', ['address' => $address, 'latest']);
-        return Utils::toDisplayAmount($balance, 18);
+        return Utils::toDisplayAmount($balance, $decimals);
     }
 
     function receiptStatus(string $txHash): bool
