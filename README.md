@@ -16,7 +16,8 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 ## Advantage
 
 1. One set of scripts is compatible with all BNB currencies and BEP20 certifications in the BSC network
-1. Interface methods can be added or subtracted flexibly
+2. Interface methods can be added or subtracted flexibly
+3. Object-oriented wrapper class for simplified operations (Helper)
 
 ## Support Method
 
@@ -51,7 +52,9 @@ or PHP7
 composer require fenguoz/bsc-php ~1.0
 ```
 
-### Interface
+## Usage Examples
+
+### Basic Interface
 
 #### Wallet
 [example.php](./example.php#L4)
@@ -128,6 +131,42 @@ $bep20->getTransactionByHash($txHash);
 $txHash = '0x4dd20d01af4c621d2f****77988bfb245a18bfb6f50604b';
 $bnb->receiptStatus($txHash);
 $bep20->receiptStatus($txHash);
+```
+
+### Advanced Usage (Helper Class)
+``` php
+require 'vendor/autoload.php';
+
+use \Binance\Helper;
+
+// Initialize with mainnet (use true for testnet)
+$binance = new Helper();
+
+// Custom configuration (extends default values)
+$customConfig = [
+    'contract_address' => '0x...', // Custom BEP20 contract
+    'decimals' => 6                // Custom decimals
+];
+
+// Generate new account
+$newAccount = $binance->generateNewAccount();
+
+// Restore account from mnemonic
+$restoredAccount = $binance->revertAccountByMnemonic('your mnemonic phrase');
+
+// Get balances
+$bnbBalance = $binance->getBnbBalance('0x1667ca2c7****021be3a');
+$usdtBalance = $binance->getBEP20Balance('0x1667ca2c7****021be3a');
+
+// Perform transfers
+$transferResult = $binance->transferBEP20(
+    'sender_private_key_hex',
+    '0xrecipient_address',
+    100 // Amount in token units
+);
+
+// Get transaction status
+$txStatus = $binance->getTransactionStatus('0xtx_hash_here');
 ```
 
 ## Plan
