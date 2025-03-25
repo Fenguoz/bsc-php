@@ -17,7 +17,6 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 
 1. One set of scripts is compatible with all BNB currencies and BEP20 certifications in the BSC network
 2. Interface methods can be added or subtracted flexibly
-3. Object-oriented wrapper class for simplified operations (Helper)
 
 ## Support Method
 
@@ -133,40 +132,28 @@ $bnb->receiptStatus($txHash);
 $bep20->receiptStatus($txHash);
 ```
 
-### Advanced Usage (Helper Class)
+### Optimized Usage
 ``` php
-require 'vendor/autoload.php';
+// Initialize network with Node API
+$nodeApi = new \Binance\NodeApi('https://bsc-dataseed.binance.org/');
+$network = new \Binance\Network($nodeApi);
 
-use \Binance\Helper;
-
-// Initialize with mainnet (use true for testnet)
-$binance = new Helper();
-
-// Custom configuration (extends default values)
-$customConfig = [
-    'contract_address' => '0x...', // Custom BEP20 contract
-    'decimals' => 6                // Custom decimals
-];
-
-// Generate new account
-$newAccount = $binance->generateNewAccount();
-
-// Restore account from mnemonic
-$restoredAccount = $binance->revertAccountByMnemonic('your mnemonic phrase');
-
-// Get balances
-$bnbBalance = $binance->getBnbBalance('0x1667ca2c7****021be3a');
-$usdtBalance = $binance->getBEP20Balance('0x1667ca2c7****021be3a');
-
-// Perform transfers
-$transferResult = $binance->transferBEP20(
-    'sender_private_key_hex',
-    '0xrecipient_address',
-    100 // Amount in token units
+// Get services with validation
+$bnb = $network->getBnbService();
+$usdt = $network->getBEP20Service(
+    '0x55d398326f99059fF775485246999027B3197955',
+    18
 );
 
-// Get transaction status
-$txStatus = $binance->getTransactionStatus('0xtx_hash_here');
+// Unified transaction execution
+$txResult = $usdt->transfer(
+    'private_key_hex',
+    '0xreceiver_address',
+    5.0
+);
+
+// Query formatted balances
+$formattedBalance = $usdt->balance('0xaddress');
 ```
 
 ## Plan
