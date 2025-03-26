@@ -3,6 +3,10 @@
 namespace Binance;
 
 use Web3p\EthereumTx\Transaction;
+use InvalidArgumentException;
+use Binance\Utils;
+use Binance\Formatter;
+use Binance\PEMHelper;
 
 class BEP20 extends Bnb
 {
@@ -12,6 +16,14 @@ class BEP20 extends Bnb
     function __construct(ProxyApi $proxyApi, array $config)
     {
         parent::__construct($proxyApi);
+
+        if (!isset($config['contract_address']) || !Utils::isAddress($config['contract_address'])) {
+            throw new InvalidArgumentException('Invalid BEP20 contract address');
+        }
+
+        if (!isset($config['decimals']) || $config['decimals'] <= 0 || $config['decimals'] > 18) {
+            throw new InvalidArgumentException('Decimals must be between 1-18');
+        }
 
         $this->contractAddress = $config['contract_address'];
         $this->decimals = $config['decimals'];
