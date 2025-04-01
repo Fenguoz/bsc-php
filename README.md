@@ -16,7 +16,7 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 ## Advantage
 
 1. One set of scripts is compatible with all BNB currencies and BEP20 certifications in the BSC network
-2. Interface methods can be added or subtracted flexibly
+1. Interface methods can be added or subtracted flexibly
 
 ## Support Method
 
@@ -51,9 +51,7 @@ or PHP7
 composer require fenguoz/bsc-php ~1.0
 ```
 
-## Usage Examples
-
-### Basic Interface
+### Interface
 
 #### Wallet
 [example.php](./example.php#L4)
@@ -130,30 +128,6 @@ $bep20->getTransactionByHash($txHash);
 $txHash = '0x4dd20d01af4c621d2f****77988bfb245a18bfb6f50604b';
 $bnb->receiptStatus($txHash);
 $bep20->receiptStatus($txHash);
-```
-
-### Optimized Usage
-``` php
-// Initialize network with Node API
-$nodeApi = new \Binance\NodeApi('https://bsc-dataseed.binance.org/');
-$network = new \Binance\Network($nodeApi);
-
-// Get services with validation
-$bnb = $network->getBnbService();
-$usdt = $network->getBEP20Service(
-    '0x55d398326f99059fF775485246999027B3197955',
-    18
-);
-
-// Unified transaction execution
-$txResult = $usdt->transfer(
-    'private_key_hex',
-    '0xreceiver_address',
-    5.0
-);
-
-// Query formatted balances
-$formattedBalance = $usdt->balance('0xaddress');
 ```
 
 ## Plan

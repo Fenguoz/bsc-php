@@ -35,9 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Binance\\": "src/",
-            "Binance\\Contracts\\": "src/Contracts/"
-
+            "Binance\\": "src/"
         }
     }
 }
