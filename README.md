@@ -16,7 +16,7 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 ## Advantage
 
 1. One set of scripts is compatible with all BNB currencies and BEP20 certifications in the BSC network
-1. Interface methods can be added or subtracted flexibly
+2. Interface methods can be added or subtracted flexibly
 
 ## Support Method
 
