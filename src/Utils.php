@@ -376,6 +376,9 @@ class Utils
                 $negative1 = new BigInteger(-1);
             }
             if (strpos($number, '.') > 0) {
+                if (stripos($number, 'e')) {
+                    $number = rtrim(rtrim(sprintf("%.18f", $number), '0'), '.');
+                }
                 $comps = explode('.', $number);
 
                 if (count($comps) > 2) {
