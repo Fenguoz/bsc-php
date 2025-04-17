@@ -23,7 +23,7 @@ $wallet->revertAccountByPrivateKey($privateKey);
  * Bnb & BEP20
  */
 ## Method 1 : BSC RPC Nodes
-$uri = 'https://bsc-dataseed1.defibit.io/'; // Mainnet
+$uri = 'https://bsc-dataseed1.binance.org'; // Mainnet
 $api = new \Binance\NodeApi($uri);
 // $uri = 'https://data-seed-prebsc-1-s1.binance.org:8545/';// Testnet
 // $api = new \Binance\NodeApi($uri, null, null, 'testnet');
