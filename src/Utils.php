@@ -368,7 +368,13 @@ class Utils
         } elseif (is_int($number)) {
             $bn = new BigInteger($number);
         } elseif (is_numeric($number)) {
-            $number = (string) $number;
+            // Handling scientific notation and decimal precision
+            $number = rtrim(sprintf('%.18f', $number), '0');
+            if (strpos($number, '.') === false) {
+                $number = (string) $number;
+            } else {
+                $number = rtrim($number, '.');
+            }
 
             if (self::isNegative($number)) {
                 $count = 1;
